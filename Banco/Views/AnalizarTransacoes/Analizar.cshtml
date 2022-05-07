@@ -1,0 +1,94 @@
+﻿@model List<AnaliseViewModel>;
+@{
+    ViewData["Title"] = "Analizar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    @*<h2>Nenhuma transação suspeita foi localizada na data escolhida</h2>*@
+
+
+    <h1>Transções suspeitas</h1>
+    <hr />
+    <table class="table">
+        <tr>
+            <th scope="col">Banco Origem</th>
+            <th scope="col">Agencia Origem</th>
+            <th scope="col">Conta Origem</th>
+            <th scope="col">Banco Destino</th>
+            <th scope="col">Agencia Destino</th>
+            <th scope="col">Conta Destino</th>
+            <th scope="col">Valor</th>
+        </tr>
+
+        @foreach (var transferencia in Model)
+        {
+            @foreach (var item in transferencia.TransacaoSuspeitas)
+            {
+                <tr>
+                    <td scope="row">@item.BancoOrigem</td>
+                    <td>@item.AgenciaOrigem</td>
+                    <td>@item.ContaOrigem</td>
+                    <td>@item.BancoDestino</td>
+                    <td>@item.AgenciaDestino</td>
+                    <td>@item.ContaDestino</td>
+                    <td>@item.Valor</td>
+
+                </tr>
+            }
+        }
+    </table>
+    <h1>Contas suspeitas</h1>
+    <hr />
+    <table class="table">
+        <tr>
+            <th scope="col">Banco</th>
+            <th scope="col">Agencia</th>
+            <th scope="col">Conta</th>
+            <th scope="col">Valor Movimentado</th>
+            <th scope="col">Tipo Movimentação</th>
+        </tr>
+
+        @foreach (var transferencia in Model)
+        {
+            @foreach (var item in transferencia.ContaSuspeitas)
+            {
+                <tr>
+                    <td scope="row">@item.BancoDestino</td>
+                    <td>@item.AgenciaDestino</td>
+                    <td>@item.ContaDestino</td>
+                    <td>@item.ValorMovimentado</td>
+                    <td>@item.TipoMovimentacao</td>
+
+                </tr>
+            }
+        }
+    </table>
+    <h1>Agencias suspeitas</h1>
+    <hr />
+    <table class="table">
+        <tr>
+            <th scope="col">Banco Destino</th>
+            <th scope="col">Agencia Destino</th>
+            <th scope="col">Valor Movimentado</th>
+            <th scope="col">Tipo Movimentação</th>
+        </tr>
+
+        @foreach (var transferencia in Model)
+        {
+            foreach (var item in transferencia.AgenciaSuspeitas)
+            {
+                <tr>
+                    <td scope="row">@item.BancoDestino</td>
+                    <td>@item.AgenciaDestino</td>
+                    <td>@item.ValorMovimentado</td>
+                    <td>@item.TipoMovimentacao</td>
+
+                </tr>
+            }
+        }
+    </table>
+
+
+
+
+

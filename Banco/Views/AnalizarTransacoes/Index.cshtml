@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewData["Title"] = "Analizar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Analizar Transações</h1>
+<hr/>
+<div class="input-group">
+    @using (Html.BeginForm("Analizar","AnalizarTransacoes", FormMethod.Post))
+ {
+     <input type="date" name="data" />
+      <input class="input-group-text" type="submit" value="Analizar" />
+ }
+</div>
+<hr/>
+

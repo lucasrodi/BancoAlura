@@ -1,0 +1,43 @@
+﻿@model Banco.Transferencia
+
+@{
+    ViewData["Title"] = "Detalhes Transferencia";
+}
+<h2>Detalhes Da Transferencia </h2>
+@if (Model != null)
+{
+
+    <div>
+        <p>Importado Por:  @Model.UsuarioLogado </p>
+        <p>Importado Em:  @Model.Data </p>
+        <p>Data da Importação:  @Model.DataImportacao </p>
+
+
+
+        <table class="table">
+            <tr>
+                <th scope="col">Banco Origem</th>
+                <th scope="col">Agencia Origem</th>
+                <th scope="col">Conta Origem</th>
+                <th scope="col">Banco Destino</th>
+                <th scope="col">Agencia Destino</th>
+                <th scope="col">Conta Destino</th>
+                <th scope="col">Valor</th>
+            </tr>
+
+            <tr>
+                <td scope="row">@Model.BancoOrigem</td>
+                <td>@Model.AgenciaOrigem</td>
+                <td>@Model.ContaOrigem</td>
+                <td>@Model.BancoDestino</td>
+                <td>@Model.AgenciaDestino</td>
+                <td>@Model.ContaDestino</td>
+                <td>@Model.Valor</td>
+
+            </tr>
+
+        </table>
+        
+    </div>
+
+}
